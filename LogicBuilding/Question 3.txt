@@ -1,0 +1,15 @@
+Question 3 OddEven
+start
+=>(Start)
+input
+=>(Input a number)
+if (Number % 2 == 0)
+=>(Number % 2 == 0?)
+  print("Even")
+  =>(Print "Even")
+else
+=>(Number % 2 != 0)
+  print("Odd")
+  =>(Print "Odd")
+end
+=>(End)

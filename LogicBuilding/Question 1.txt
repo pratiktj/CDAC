@@ -1,0 +1,16 @@
+Question 1
+start
+=>(Start)
+input
+=>(Input a number)
+if (Number > 0)
+=>(Number > 0?)
+  print("Number is Positive")
+  =>(Print "Positive")
+
+else
+=>
+  print("Number is not Positive")
+  =>(Print "Number is not positive")
+end
+=>(End)

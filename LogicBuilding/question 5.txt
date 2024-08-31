@@ -1,0 +1,11 @@
+Square Area
+start
+=>(Start)
+input
+=>(Input side length)
+area = side * side
+=>(Calculate area)
+print("Area of the square: " + area)
+=>(Print area)
+end
+=>(End)
