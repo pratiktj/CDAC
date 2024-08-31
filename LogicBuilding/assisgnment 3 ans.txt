@@ -1,0 +1,311 @@
+question 1:
+The loop runs infinitely because the loop control variable i is being decremented (i--) instead of incremented (i++). This means that i will always be less than 10, causing the loop to never terminate.
+
+solution is increment i instead of decrement
+
+question 2:
+The loop does not execute as expected because the condition in the while loop is using the assignment operator (=) instead of the equality operator (==). The assignment operator assigns the value 0 to count, which is always false in a boolean context, causing the loop to never execute.
+
+To fix this, we should use the equality operator (==) in the while loop condition
+
+question 3:
+The loop only executes once because of the condition in the do-while loop. Here’s a detailed explanation:
+
+Explanation
+Initial Value: num starts at 0.
+Do-While Loop: The do block executes first, printing 0 and then incrementing num to 1.
+Condition Check: After the do block executes, the while condition num > 0 is checked. Since num is now 1, the condition is true, and the loop continues.
+Second Iteration: The do block executes again, printing 1 and then incrementing num to 2.
+Condition Check: The while condition num > 0 is checked again. Since num is now 2, the condition is true, and the loop continues.
+This process will continue indefinitely because num will always be greater than 0 after the first iteration
+
+solution is:If you want the loop to execute only once, you should change the condition to num == 0:
+
+question 4:
+The issue with the loop boundaries is that the condition i <= 10 includes the number 10 in the output. If the task expects the loop to print numbers from 1 to 9, you need to adjust the loop condition to exclude 10.
+
+To meet the expected output of printing numbers from 1 to 9, you should change the loop condition to i < 10:
+
+question 5:
+The loop does not print numbers in the expected order because the update statement i++ increments the loop control variable i, while the condition i >= 0 suggests that the loop should be decrementing i. This mismatch causes the loop to run infinitely, as i will always be greater than or equal to 0.
+
+Explanation
+Initialization: i starts at 10.
+Condition: The loop continues as long as i is greater than or equal to 0.
+Update: i is incremented (i++), which means i will keep increasing, never meeting the condition to terminate the loop.
+
+To print numbers from 10 down to 0, i should decrement i in the update statement:
+
+question 6:
+The issue is that the for loop only includes the System.out.println(i); statement because it is not enclosed in braces {}. As a result, the System.out.println("Done"); statement is outside the loop and executes only once after the loop completes.
+To include both System.out.println(i); and System.out.println("Done"); within the loop, you should enclose the loop body in braces {}:
+
+question 7:
+The code produces a compilation error because the variable count is declared but not initialized. In Java, local variables must be initialized before they are used. The while loop condition count < 10 tries to use count before it has been assigned a value, leading to a compilation error.
+To fix this, you need to initialize the count variable before using it in the while loop
+
+question 8:
+The loop prints unexpected numbers because the num variable is being decremented (num--) instead of incremented (num++). This causes the loop to terminate after the first iteration since num becomes 0, which is not greater than 0.
+To print the numbers from 1 to 5, you should increment num in the do block and adjust the loop condition accordingly:
+
+question 9:
+The loop does not run infinitely, but it might print unexpected results if you were expecting a different sequence. The update expression i += 2 increments i by 2 in each iteration, which means the loop will print every second number starting from 0 until i is no longer less than 5.
+If you want the loop to print numbers from 0 to 4 incrementing by 1, you should change the update expression to i++:
+
+question 10:
+The issue with your loop condition is that you are using the assignment operator = instead of the equality operator ==. In Java, = assigns the value on the right to the variable on the left, and the result of the assignment is the value assigned. Therefore, num = 10 always evaluates to 10, which is a non-zero value and considered true in the context of the while loop. This causes the loop to execute indefinitely.
+However, if you want the loop to decrement num until it is no longer 10, you should adjust the condition to something like while (num > 0)
+
+question 12:
+The variable x causes a compilation error because it is declared inside the for loop, making its scope limited to the loop block. In Java, a variable declared inside a block (enclosed by {}) is only accessible within that block. Once the block is exited, the variable is no longer accessible.
+
+section 2
+-------------------------------------------------------------------------------------------------->
+question 1
+1. Perform Dry Run
+We’ll manually trace the code execution:
+
+Outer Loop (i = 1):
+Inner Loop (j = 1): Prints 1 1 
+Inner Loop (j = 2): Prints 1 2 
+End of inner loop, prints a newline.
+Outer Loop (i = 2):
+Inner Loop (j = 1): Prints 2 1 
+Inner Loop (j = 2): Prints 2 2 
+End of inner loop, prints a newline.
+Outer Loop (i = 3):
+Inner Loop (j = 1): Prints 3 1 
+Inner Loop (j = 2): Prints 3 2 
+End of inner loop, prints a newline.
+2. Observations
+The outer loop runs from i = 1 to i = 3.
+For each iteration of the outer loop, the inner loop runs from j = 1 to j = 2.
+The inner loop prints the current values of i and j followed by a space.
+After the inner loop completes, a newline is printed.
+3. Guess the Output
+Based on the dry run and observations, the output will be:
+
+1 1 1 2 
+2 1 2 2 
+3 1 3 2 
+
+----------------------------------------------------------------------------------------------------->
+question 2
+Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: total = 0
+First Iteration (i = 5):
+total += 5 → total = 5
+i != 3, so total -= 1 → total = 4
+Second Iteration (i = 4):
+total += 4 → total = 8
+i != 3, so total -= 1 → total = 7
+Third Iteration (i = 3):
+total += 3 → total = 10
+i == 3, so continue is executed, skipping total -= 1
+Fourth Iteration (i = 2):
+total += 2 → total = 12
+i != 3, so total -= 1 → total = 11
+Fifth Iteration (i = 1):
+total += 1 → total = 12
+i != 3, so total -= 1 → total = 11
+2. Observations
+The loop starts with i = 5 and decrements i by 1 each iteration until i > 0.
+For each iteration, total is incremented by the value of i.
+If i equals 3, the continue statement skips the total -= 1 operation for that iteration.
+For all other values of i, total is decremented by 1 after being incremented.
+3. Guess the Output
+Based on the dry run and observations, the final value of total after the loop completes will be 11.
+
+So, the output of the program will be:11
+
+---------------------------------------------------------------------------------------------------------->
+question 3:
+1. Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: count = 0
+First Iteration:
+count < 5 is true.
+Print count (0), so output is 0 .
+Increment count → count = 1.
+count != 3, so continue.
+Second Iteration:
+count < 5 is true.
+Print count (1), so output is 0 1 .
+Increment count → count = 2.
+count != 3, so continue.
+Third Iteration:
+count < 5 is true.
+Print count (2), so output is 0 1 2 .
+Increment count → count = 3.
+count == 3, so break is executed.
+After the Loop:
+Print count (3), so output is 0 1 2 3.
+2. Observations
+The while loop runs as long as count is less than 5.
+The loop prints the value of count and then increments it.
+When count reaches 3, the break statement terminates the loop.
+After the loop, the final value of count is printed.
+3. Guess the Output
+Based on the dry run and observations, the output will be:0 1 2 3
+------------------------------------------------------------------------------------------------------------->
+question 4
+1. Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: i = 1
+First Iteration:
+Print i (1), so output is 1 .
+Increment i → i = 2.
+Check condition i < 5 (true), continue loop.
+Second Iteration:
+Print i (2), so output is 1 2 .
+Increment i → i = 3.
+Check condition i < 5 (true), continue loop.
+Third Iteration:
+Print i (3), so output is 1 2 3 .
+Increment i → i = 4.
+Check condition i < 5 (true), continue loop.
+Fourth Iteration:
+Print i (4), so output is 1 2 3 4 .
+Increment i → i = 5.
+Check condition i < 5 (false), exit loop.
+After the Loop:
+Print i (5), so output is 1 2 3 4 5.
+2. Observations
+The do-while loop executes the block of code at least once before checking the condition.
+The loop prints the value of i and then increments it.
+The loop continues as long as i is less than 5.
+After exiting the loop, the final value of i is printed.
+3. Guess the Output
+Based on the dry run and observations, the output will be:1 2 3 4 5
+
+--------------------------------------------------------------------------------------------------------->
+question 6
+. Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: x = 5
+First Operation: ++x
+Pre-increment: x is incremented before use.
+x becomes 6.
+Second Operation: x--
+Post-decrement: x is used before decrement.
+x is 6 (used in the expression).
+x becomes 5 after the operation.
+Third Operation: --x
+Pre-decrement: x is decremented before use.
+x becomes 4.
+Fourth Operation: x++
+Post-increment: x is used before increment.
+x is 4 (used in the expression).
+x becomes 5 after the operation.
+Now, substitute these values into the expression for y:
+
+y = 6 - 6 + 4 + 4Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: count = 0
+First Iteration (i = 0):
+i++: Post-increment, i is used as 0 and then incremented to 1.
+++i: Pre-increment, i is incremented to 2 before use.
+count += 0 - 2 → count = -2
+End of iteration, i is 2.
+Second Iteration (i = 2):
+i++: Post-increment, i is used as 2 and then incremented to 3.
+++i: Pre-increment, i is incremented to 4 before use.
+count += 2 - 4 → count = -4
+End of iteration, i is 4.
+Third Iteration (i = 4):
+The loop condition i < 4 is false, so the loop terminates.
+2. Observations
+The loop runs while i is less than 4.
+In each iteration, i++ uses the current value of i and then increments it.
+++i increments i before using it.
+The expression i++ - ++i results in a subtraction that affects the count variable.
+The loop terminates when i reaches 4.
+3. Guess the Output
+Based on the dry run and observations, the value of count will be:
+
+count = -2 + (-2) = -4
+
+So, the output of the program will be:
+
+2. Observations
+The pre-increment (++x) and pre-decrement (--x) operations change the value of x before it is used in the expression.
+The post-increment (x++) and post-decrement (x--) operations use the current value of x in the expression before changing it.
+The final value of x after all operations is 5.
+3. Guess the Output
+Based on the dry run and observations, the value of y will be:8
+----------------------------------------------------------------------------------------------------------------->
+question 7
+1. Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: a = 10, b = 5
+First Operation: ++a
+Pre-increment: a is incremented before use.
+a becomes 11.
+Second Operation: b--
+Post-decrement: b is used before decrement.
+b is 5 (used in the expression).
+b becomes 4 after the operation.
+Third Operation: --a
+Pre-decrement: a is decremented before use.
+a becomes 10.
+Fourth Operation: b++
+Post-increment: b is used before increment.
+b is 4 (used in the expression).
+b becomes 5 after the operation.
+Now, substitute these values into the expression for result:
+
+result = 11 * 5 - 10 + 4
+
+2. Observations
+The pre-increment (++a) and pre-decrement (--a) operations change the value of a before it is used in the expression.
+The post-increment (b++) and post-decrement (b--) operations use the current value of b in the expression before changing it.
+The final values of a and b after all operations are 10 and 5, respectively.
+3. Guess the Output
+Based on the dry run and observations, the value of result will be:
+
+result = 11 * 5 - 10 + 4 = 55 - 10 + 4 = 49
+
+So, the output of the program will be:49
+
+-------------------------------------------------------------------------------------------------------------->
+question 8
+Perform Dry Run
+We’ll manually trace the code execution:
+
+Initial State: count = 0
+First Iteration (i = 0):
+i++: Post-increment, i is used as 0 and then incremented to 1.
+++i: Pre-increment, i is incremented to 2 before use.
+count += 0 - 2 → count = -2
+End of iteration, i is 2.
+Second Iteration (i = 2):
+i++: Post-increment, i is used as 2 and then incremented to 3.
+++i: Pre-increment, i is incremented to 4 before use.
+count += 2 - 4 → count = -4
+End of iteration, i is 4.
+Third Iteration (i = 4):
+The loop condition i < 4 is false, so the loop terminates.
+2. Observations
+The loop runs while i is less than 4.
+In each iteration, i++ uses the current value of i and then increments it.
+++i increments i before using it.
+The expression i++ - ++i results in a subtraction that affects the count variable.
+The loop terminates when i reaches 4.
+3. Guess the Output
+Based on the dry run and observations, the value of count will be:
+
+count = -2 + (-2) = -4
+
+So, the output of the program will be:-4
+
+------------------------------------------------------------------------------------------------->
+
+
+
