@@ -1,0 +1,64 @@
+echo "Hello, World!": Prints “Hello, World!” to the terminal.
+
+name="Productive": Assigns the string “Productive” to the variable name.
+
+touch file.txt: Creates an empty file named file.txt if it doesn’t already exist.
+
+ls -a: Lists all files and directories in the current directory, including hidden ones (those starting with a dot).
+
+rm file.txt: Deletes the file named file.txt.
+
+cp file1.txt file2.txt: Copies file1.txt to file2.txt.
+
+mv file.txt /path/to/directory/: Moves file.txt to the specified directory.
+
+chmod 755 script.sh: Changes the permissions of script.sh to rwxr-xr-x, allowing the owner to read, write, and execute, and others to read and execute.
+
+grep "pattern" file.txt: Searches for the string “pattern” in file.txt and prints the matching lines.
+
+kill PID: Terminates the process with the specified Process ID (PID).
+
+mkdir mydir && cd mydir && touch file.txt && echo "Hello, World!" > file.txt && cat file.txt: Creates a directory named mydir, changes into it, creates an empty file named file.txt, writes “Hello, World!” into file.txt, and then displays its contents.
+
+ls -l | grep ".txt": Lists all files in long format and filters the output to show only those with a .txt extension.
+
+cat file1.txt file2.txt | sort | uniq: Concatenates file1.txt and file2.txt, sorts the combined output, and removes duplicate lines.
+
+ls -l | grep "^d": Lists all files in long format and filters the output to show only directories.
+
+grep -r "pattern" /path/to/directory/: Recursively searches for the string “pattern” in all files within the specified directory.
+
+cat file1.txt file2.txt | sort | uniq -d: Concatenates file1.txt and file2.txt, sorts the combined output, and prints only the duplicate lines.
+
+chmod 644 file.txt: Changes the permissions of file.txt to rw-r--r--, allowing the owner to read and write, and others to read only.
+
+cp -r source_directory destination_directory: Recursively copies source_directory and its contents to destination_directory.
+
+find /path/to/search -name "*.txt": Searches for all files with a .txt extension within the specified directory and its subdirectories.
+
+chmod u+x file.txt: Adds execute permission for the owner of file.txt.
+
+echo $PATH: Prints the value of the PATH environment variable, which lists directories where executable files are located.
+
+
+Identify True or False:
+1. ls is used to list files and directories in a directory.    TRUE
+2. mv is used to move files and directories.                   TRUE
+3. cd is used to copy files and directories.                   FALSE
+4. pwd stands for "print working directory" and displays the current directory. TRUE
+5. grep is used to search for patterns in files.               TRUE
+6. chmod 755 file.txt gives read, write, and execute permissions to the owner, and read and execute
+permissions to group and others.                                TRUE
+7. mkdir -p directory1/directory2 creates nested directories, creating directory2 inside directory1
+if directory1 does not exist.                                   TRUE
+8. rm -rf file.txt deletes a file forcefully without confirmation. FALSE
+
+
+Identify the Incorrect Commands:
+1. chmodx is used to change file permissions.
+2. cpy is used to copy files and directories.
+3. mkfile is used to create a new file.
+4. catx is used to concatenate files.
+5. rn is used to rename files.
+
+THESE ALL ARE INCORRECT
