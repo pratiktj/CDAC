@@ -1,10 +1,9 @@
-package assignment4;
+package assignment;
 import java.util.Scanner;
-
 public class Program {
-	
+  
 	public static void main(String[] args) {
-        LoanAmortizationCalculatorUtil util = new LoanAmortizationCalculatorUtil();
+        CompoundInterestCalculatorUtil util = new CompoundInterestCalculatorUtil();
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -29,5 +28,4 @@ public class Program {
         } while (choice != 3);
     }
 }
-
 
