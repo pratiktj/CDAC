@@ -1,9 +1,9 @@
-package QuestionFourPointFour;
+package QuestionFourPointFive;
 
 public class Program {
   
 	public static void main(String[] args) {
-        DiscountCalculatorUtil util = new DiscountCalculatorUtil();
+        TollBoothRevenueManagerUtil util = new TollBoothRevenueManagerUtil();
         util.menuList();
     }
 }
