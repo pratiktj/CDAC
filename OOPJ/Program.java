@@ -1,8 +1,9 @@
-package QuestionFourPointThree;
+package QuestionFourPointFour;
 
 public class Program {
+  
 	public static void main(String[] args) {
-        BMITrackerUtil util = new BMITrackerUtil();
+        DiscountCalculatorUtil util = new DiscountCalculatorUtil();
         util.menuList();
     }
 }

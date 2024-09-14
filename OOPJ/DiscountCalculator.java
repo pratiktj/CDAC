@@ -1,38 +1,45 @@
-package assignment3;
-
-import java.util.Scanner;
+package QuestionFourPointFour;
 
 public class DiscountCalculator {
-    private double originalPrice;
+   
+	private double originalPrice;
     private double discountRate;
-    private double discountAmount;
-    private double finalPrice;
 
-    
-    public void acceptRecord() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the original price (₹): ");
-        originalPrice = sc.nextDouble();
-        System.out.println("Enter the discount percentage (%): ");
-        discountRate = sc.nextDouble();
+    public DiscountCalculator(double originalPrice, double discountRate) {
+        this.originalPrice = originalPrice;
+        this.discountRate = discountRate;
     }
 
-    
-    public void calculateDiscount() {
-        discountAmount = originalPrice * (discountRate / 100);
-        finalPrice = originalPrice - discountAmount;
+    public double getOriginalPrice() {
+        return originalPrice;
     }
 
-    
-    public void printRecord() {
-        System.out.printf("Discount amount: ₹%.2f%n", discountAmount);
-        System.out.printf("Final price: ₹%.2f%n", finalPrice);
+    public void setOriginalPrice(double originalPrice) {
+        this.originalPrice = originalPrice;
     }
 
-    public static void main(String[] args) {
-        DiscountCalculator calculator = new DiscountCalculator();
-        calculator.acceptRecord();
-        calculator.calculateDiscount();
-        calculator.printRecord();
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+
+    public double calculateDiscountAmount() {
+        return originalPrice * (discountRate / 100);
+    }
+
+    public double calculateFinalPrice() {
+        return originalPrice - calculateDiscountAmount();
+    }
+
+    @Override
+    public String toString() {
+        return "DiscountCalculator{" +
+                "originalPrice=" + originalPrice +
+                ", discountRate=" + discountRate +
+                '}';
     }
 }
+
