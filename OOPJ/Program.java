@@ -1,9 +1,8 @@
-package QuestionFourPointTwo;
+package QuestionFourPointThree;
 
 public class Program {
-  
 	public static void main(String[] args) {
-        CompoundInterestCalculatorUtil util = new CompoundInterestCalculatorUtil();
+        BMITrackerUtil util = new BMITrackerUtil();
         util.menuList();
     }
 }

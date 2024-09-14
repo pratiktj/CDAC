@@ -1,63 +1,66 @@
-package assignment3;
-
-import java.util.Scanner;
+package QuestionFourPointThree;
 
 public class BMITracker {
-	 public double dHeight;
-	 public double dWeight;
-	 public double dBMI;
-	 public String classification;
-	 
-	 public void acceptRecord()
-	 {   
-		 Scanner sc=new Scanner(System.in);
-		 System.out.println("Type weight in kgs");
-		 dWeight=sc.nextDouble();
-		 System.out.println("Type height in meters");
-		 dHeight=sc.nextDouble();
-		 
-      }
-	 
-	 public void calculateBMI()
-	 {
-		 dBMI=dWeight/(dHeight * dHeight);
-		 
-	 }
-	 
-	 public void classifyBMI()
-	 {
-		 if(dBMI<18.5)
-		 {
-			 classification="Underweight";
-			 
-		 }
-		 else if(dBMI>=18.5&&dBMI<24.9)
-		 {
-			 classification="Normal Weight";
-		 }
-		 else if(dBMI<=25&&dBMI<29.9)
-		 {
-			 classification="Overweight";
-		 }
-		 else
-		 {
-			 classification="Obese";
-		 }
-	 }
-	 
-	 public void printRecord()
-	 {
-		 System.out.printf("BMI is: %.2f, classification is: %s%n", dBMI, classification);
-	 }
+  
+	private double weight;
+	private double height;
 	
-	
-	public static void main(String []args)
-	{  
-		BMITracker bobj=new BMITracker();
-		bobj.acceptRecord();
-		bobj.calculateBMI();
-		bobj.classifyBMI();
-		bobj.printRecord();
+	public BMITracker(double weight,double height)
+	{
+		this.weight=weight;
+		this.height=height;
 	}
-
+	
+	public double getWeight()
+	{
+		return weight;
+	}
+	
+	public void setWeight(double weight)
+	{
+		this.weight=weight;
+	}
+	
+	
+	public double getHeight()
+	{
+		return height;
+	}
+	
+	public void setHeight(double height)
+	{
+		this.height=height;
+	}
+	 
+	public double calculateBMI()
+	{
+		return weight/(height*height);
+	}
+	
+	public String classifyBMI()
+	{
+		double bmi=calculateBMI();
+		if(bmi<18.5)
+		{
+			return "Underweight";
+		}
+	 else if (bmi < 24.9) {
+        return "Normal weight";
+    } 
+	 else if (bmi < 29.9) {
+        return "Overweight";
+    } else 
+    {
+        return "Obese";
+    }
 }
+	 public String toString() {
+	        return "BMITracker{" +
+	                "weight=" + weight +
+	                ", height=" + height +
+	                '}';
+	    }
+	}
+	
+	
+
