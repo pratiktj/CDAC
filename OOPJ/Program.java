@@ -1,9 +1,9 @@
-package QuestionFourPointOne;
+package QuestionFourPointTwo;
 
 public class Program {
   
 	public static void main(String[] args) {
-        LoanAmortizationCalculatorUtil util = new LoanAmortizationCalculatorUtil();
+        CompoundInterestCalculatorUtil util = new CompoundInterestCalculatorUtil();
         util.menuList();
-	}
+    }
 }

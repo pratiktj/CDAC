@@ -1,10 +1,8 @@
-package assignment;
+package QuestionFourPointTwo;
 import java.util.Scanner;
 public class CompoundInterestCalculatorUtil {
-  
 	private CompoundInterestCalculator calculator;
 
-   
     public void acceptRecord() {
         Scanner scanner = new Scanner(System.in);
 
@@ -23,16 +21,43 @@ public class CompoundInterestCalculatorUtil {
         calculator = new CompoundInterestCalculator(principal, annualInterestRate, numberOfCompounds, years);
     }
 
-    
     public void printRecord() {
-        System.out.println(calculator);
+        if (calculator != null) {
+            double futureValue = calculator.calculateFutureValue();
+            double totalInterest = calculator.calculateTotalInterest();
+
+            System.out.printf("Future Value: ₹%.2f%n", futureValue);
+            System.out.printf("Total Interest Earned: ₹%.2f%n", totalInterest);
+        } else {
+            System.out.println("No investment record found. Please accept the record first.");
+        }
     }
 
-   
     public void menuList() {
-        System.out.println("1. Accept Record");
-        System.out.println("2. Print Record");
-        System.out.println("3. Exit");
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("1. Accept Investment Record");
+            System.out.println("2. Print Investment Record");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    acceptRecord();
+                    break;
+                case 2:
+                    printRecord();
+                    break;
+                case 3:
+                    System.out.println("Exiting...");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
     }
 }
+
+    
 
