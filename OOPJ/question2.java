@@ -1,51 +1,39 @@
-//assignment 5
-class Vehicle
-{ 
-    private String sMake;
-    private int iYear;
+package assignment6;
+import java.util.Scanner;
 
-   public Vehicle(String sCompanyName,int iPeriod)
-    {
-       this.sMake=sCompanyName;
-       this.iYear=iPeriod;
-
+public class question2 {
+    public static void main(String[] args) {
+        
+        int[] numbers = new int[5];
+        
       
-    }
-
-    public void displayDetails()
-    {
-        System.out.println(this.sMake);
-        System.out.println(this.iYear);
-    }
-
-
-
-}
-
-class car extends Vehicle
-{
-    private String sModel;
+        System.out.println("Default values of the array:");
+        printRecord(numbers);
+        
+        acceptRecord(numbers);
+        
     
-    public car(String sCompanyName,int iPeriod,String sCarName)
-    {  
-        super(sCompanyName,iPeriod);
-         this.sModel=sCarName;
+        System.out.println("\nUpdated values of the array:");
+        printRecord(numbers);
     }
-
-    public void displayDetails()
-    {    super.displayDetails();
-        System.out.println(this.sModel);
-    }
-
-}
-
-class question2
-{
-    public static void main(String []args)
-    {
-        car cobj=new car("honda",2024,"Civic");
-        cobj.displayDetails();
-    }
-
     
+    
+    public static void acceptRecord(int[] array) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nEnter 5 integers:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Enter value for index " + i + ": ");
+            array[i] = scanner.nextInt();
+        }
+        scanner.close();
+    }
+    
+    
+    public static void printRecord(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element at index " + i + ": " + array[i]);
+        }
+    }
 }
+  
+

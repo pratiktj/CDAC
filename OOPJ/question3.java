@@ -1,48 +1,51 @@
-//assignment No 5
-  class Animal {
+package assignment6;
+import java.util.Scanner;
+
+public class question3 {
+	public static void acceptRecord(int[] array) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter 5 integers:");
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("Enter value for index " + i + ": ");
+            array[i] = scanner.nextInt();
+        }
+        scanner.close();
+    }
     
-    public String name;
-
-
-    public Animal(String name) {
-        this.name = name;
-    }
-
-    
-    public void eat() {
-        System.out.println(name + " is eating.");
-    }
-
-    public void sleep() {
-        System.out.println(name + " is sleeping.");
-    }
-}
-
-
- class Dog extends Animal {
-   
-    public Dog(String name) {
-        super(name); 
-    }
-
  
-    public void bark() {
-        System.out.println(name+ " is barking");
+    public static int findMax(int[] array) {
+        int max = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
     }
-}
-
-
-public  class question3 {
+    
+    
+    public static int findMin(int[] array) {
+        int min = array[0];
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+    
     public static void main(String[] args) {
-       
-        Animal aobj = new Animal("tiger"); //base class object- parameterised const.gets called
-        aobj.eat();   // base class obj calls method eat()
-        aobj.sleep(); // base class obj calls method sleep()
-
         
-        Dog dobj = new Dog("ollie"); // subclass obj created-parameterised cons.gets called
-        dobj.eat();  // subclass obj calls eat method
-        dobj.sleep(); // subclas obj calls sleeps methods
-        dobj.bark();  // subclss obj calls bark methods
+        int[] numbers = new int[5];
+        
+       
+        acceptRecord(numbers);
+        
+        
+        int max = findMax(numbers);
+        int min = findMin(numbers);
+        
+        System.out.println("Maximum value in the array: " + max);
+        System.out.println("Minimum value in the array: " + min);
     }
 }
