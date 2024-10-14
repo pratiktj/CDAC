@@ -1,0 +1,219 @@
+SQL Exercise-1  
+
+
+1) Create the table SEMP with the following structure:-    
+    
+   EMPNO      CHAR(4)    
+   EMPNAME    CHAR(20)    
+   BASIC      FLOAT    
+   DEPTNO     CHAR(2)    
+   DEPTHEAD   CHAR(4)    
+--> mysql> create table SEMP
+    -> (
+    -> EMPNO char(4),
+    -> EMPNAME char(20),
+    -> BASIC FLOAT,
+    -> DEPTNO char(2),
+    -> DEPTHEAD char(4)
+    -> );
+
+2. Create the table SDEPT with the following structure:-    
+    
+   DEPTNO     CHAR(2)    
+   DEPTNAME   CHAR(15) 
+-->  mysql> create table SDEPT
+    -> (
+    -> DEPTNO char(4),
+    -> DEPTNAME char(15)
+    -> );
+
+3. Insert into the SDEPT table the following values:-    
+    
+	10, Development
+	20, Training
+
+--> mysql> insert into SDEPT (DEPTNO,DEPTNAME) values
+    -> (10,'Development'),
+    -> (20,'Training');
+
+4. Insert into the SEMP table the following values:-    
+    
+	0001, 'SUNIL', 6000, 10
+	0002, 'HIREN', 8000, 20
+	0003, 'ALI', 4000, 10, 0001
+	0004, 'GEORGE', 6000, 0002
+
+--> mysql> INSERT INTO SEMP (EMPNO, EMPNAME, BASIC, DEPTNO, DEPTHEAD) VALUES
+    -> ('0001', 'SUNIL', 6000, '10', NULL),
+    -> ('0002', 'HIREN', 8000, '20', NULL),
+    -> ('0003', 'ALI', 4000, '10', '0001'),
+    -> ('0004', 'GEORGE', 6000, '20', NULL);
+
+***********************************************************************
+
+mysql> create table S (`S#` varchar(10), Sname varchar(50), Status INT, City varchar(50));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table P (`P#` varchar(10), Pname varchar(50), Color varchar(30), Weight Decimal(10,2),City varchar(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table J (`J#` varchar(10), Jname varchar(50), City varchar(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> create table SPJ (`S#` varchar(10), `P#` varchar(50), `J#` varchar(10), Qty INT);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into S(`S#`,Sname,Status,City) VALUES
+    -> ('S1','SHREERAM',10,'London'),
+    -> ('S2','SUPRIYA',20,'Paris'),
+    -> ('S3','PRATIK',30,'Athens'),
+    -> ('S4','UMESH',40,'New York');
+
+mysql> insert into P(`P#`,Pname,Color,Weight,City) VALUES
+    -> ('P1','Part1','Red',12.50,'London'),
+    -> ('P2','Part2','Blue',14.00,'Paris'),
+    -> ('P3','Part3','Green',13.50,'Athens'),
+    -> ('P4','Part4','Yellow',40,'New York');
+
+
+mysql> insert into J(`J#`,Jname,City) VALUES
+    -> ('J1','Project1','London'),
+    -> ('J2','Project2','Athens'),
+    -> ('J3','Project3','Paris');
+
+mysql> insert into SPJ(`S#`,`P#`,`J#`,Qty) VALUES
+    -> ('S1','P1','J1',100),
+    -> ('S2','P2','J2',200),
+    -> ('S3','P3','J3',150),
+    -> ('S4','P4','J4',300);
+
+5. Display all the data from the S table.
+
+--> mysql> select * from S;
++------+----------+--------+----------+
+| S#   | Sname    | Status | City     |
++------+----------+--------+----------+
+| S1   | SHREERAM |     10 | London   |
+| S2   | SUPRIYA  |     20 | Paris    |
+| S3   | PRATIK   |     30 | Athens   |
+| S4   | UMESH    |     40 | New York |
++------+----------+--------+----------+
+
+6. Display only the S# and SNAME fields from the S table.   
+--> mysql> select `S#`,Sname from S;
++------+----------+
+| S#   | Sname    |
++------+----------+
+| S1   | SHREERAM |
+| S2   | SUPRIYA  |
+| S3   | PRATIK   |
+| S4   | UMESH    |
++------+----------+
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+--> mysql> select Pname,Color from P WHERE City='London';
++-------+-------+
+| Pname | Color |
++-------+-------+
+| Part1 | Red   |
++-------+-------+
+
+8. Display all the Suppliers from London.   
+--> mysql> select * from S WHERE City='London';
++------+----------+--------+--------+
+| S#   | Sname    | Status | City   |
++------+----------+--------+--------+
+| S1   | SHREERAM |     10 | London |
++------+----------+--------+--------+
+
+9. Display all the Suppliers from Paris or Athens.   
+--> mysql> select * from S WHERE City='Athens' OR City='Paris';
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S2   | SUPRIYA |     20 | Paris  |
+| S3   | PRATIK  |     30 | Athens |
++------+---------+--------+--------+
+
+10. Display all the Projects in Athens.  
+--> mysql> select * from P WHERE City='Athens';
++------+-------+-------+--------+--------+
+| P#   | Pname | Color | Weight | City   |
++------+-------+-------+--------+--------+
+| P3   | Part3 | Green |  13.50 | Athens |
++------+-------+-------+--------+--------+
+
+11. Display all the Partnames with the weight between 12 and 14 (inclusive of both). 
+--> mysql> select Pname,Weight from P where weight BETWEEN 12.00 AND  14.00;
++-------+--------+
+| Pname | Weight |
++-------+--------+
+| Part1 |  12.50 |
+| Part2 |  14.00 |
+| Part3 |  13.50 |
++-------+--------+
+
+12. Display all the Suppliers with a Status greater than or equal to 20.
+--> mysql> select * from S WHERE Status>=20;
++------+---------+--------+----------+
+| S#   | Sname   | Status | City     |
++------+---------+--------+----------+
+| S2   | SUPRIYA |     20 | Paris    |
+| S3   | PRATIK  |     30 | Athens   |
+| S4   | UMESH   |     40 | New York |
++------+---------+--------+----------+
+
+13. Display all the Suppliers except the Suppliers from London.  
+--> mysql> select * from S WHERE City != 'London';
++------+---------+--------+----------+
+| S#   | Sname   | Status | City     |
++------+---------+--------+----------+
+| S2   | SUPRIYA |     20 | Paris    |
+| S3   | PRATIK  |     30 | Athens   |
+| S4   | UMESH   |     40 | New York |
++------+---------+--------+----------+
+
+14. Display only the Cities from where the Suppliers come from.    
+--> mysql> select DISTINCT City From S;
++----------+
+| City     |
++----------+
+| London   |
+| Paris    |
+| Athens   |
+| NEW York |
++----------+
+    
+15. Assuming that the Part Weight is in GRAMS, display the same in 
+MILLIGRAMS and KILOGRAMS.  
+--> mysql> select Weight, Weight*1000 Weight_in_mg, Weight/1000 Weight_in_kg FROM P;
++--------+--------------+--------------+
+| Weight | Weight_in_mg | Weight_in_kg |
++--------+--------------+--------------+
+|  12.50 |     12500.00 |     0.012500 |
+|  14.00 |     14000.00 |     0.014000 |
+|  13.50 |     13500.00 |     0.013500 |
+|  40.00 |     40000.00 |     0.040000 |
++--------+--------------+--------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
