@@ -1,0 +1,162 @@
+///created tables are//
+SELECT * FROM SUPPLIER;
++------------+--------------+-------------+--------+
+| SupplierID | SupplierName | CITY        | Status |
++------------+--------------+-------------+--------+
+|          1 | Pratik       | Los Angeles |     15 |
+|          2 | Manasi       | Chicago     |     22 |
+|          3 | Ira          | New York    |     18 |
+|          4 | Kumar        | London      |     12 |
+|          5 | Umesh        | Las Vegas   |     19 |
++------------+--------------+-------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PART;
++--------+----------+-------------+--------+
+| PartID | PartName | CITY        | Weight |
++--------+----------+-------------+--------+
+|      1 | Screw    | New York    |      5 |
+|      2 | Nut      | Los Angeles |     12 |
+|      3 | Bolt     | Chicago     |      8 |
+|      4 | Washer   | London      |     14 |
+|      5 | Stud     | Las Vegas   |      9 |
+|      6 | Socket   | New York    |     16 |
+|      7 | Seal     | Los Angeles |     11 |
++--------+----------+-------------+--------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM PROJECT;
++-----------+--------------+
+| ProjectID | JNAME        |
++-----------+--------------+
+|         1 | Project One  |
+|         2 | Project Two  |
+|         3 | Project Nine |
+|         4 | Project Five |
+|         5 | Project Ten  |
++-----------+--------------+
+
+1. Display all the Supplier names with the initial letter capital.
+mysql> SELECT CONCAT(UPPER(LEFT(SupplierName, 1)), LOWER(SUBSTRING(SupplierName, 2))) AS CapitalizedSupplierName
+    -> FROM Supplier;
++-------------------------+
+| CapitalizedSupplierName |
++-------------------------+
+| Pratik                  |
+| Manasi                  |
+| Ira                     |
+| Kumar                   |
+| Umesh                   |
++-------------------------+
+5 rows in set (0.00 sec)
+
+2. Display all the Supplier names in upper case.
+mysql> SELECT UPPER(SupplierName) AS SupplierNameUpper FROM SUPPLIER;
+
++-------------------+
+| SupplierNameUpper |
++-------------------+
+| PRATIK            |
+| MANASI            |
+| IRA               |
+| KUMAR             |
+| UMESH             |
++-------------------+
+
+3.Display all the Supplier names in lower case.
+mysql> SELECT LOWER(SupplierName) AS SupplierNameLower FROM SUPPLIER;
+
++-------------------+
+| SupplierNameLower |
++-------------------+
+| pratik            |
+| manasi            |
+| ira               |
+| kumar             |
+| umesh             |
++-------------------+
+
+4. Display all the Supplier names padded to 25 characters, with spaces on the left.
+mysql> SELECT LPAD(SupplierName, 25, ' ') AS PaddedSupplierName FROM SUPPLIER;
++---------------------------+
+| PaddedSupplierName        |
++---------------------------+
+|                    Pratik |
+|                    Manasi |
+|                       Ira |
+|                     Kumar |
+|                     Umesh |
++---------------------------+
+
+5.Display all the Supplier names (with ‘la’ replaced by ‘ro’).
+mysql> SELECT REPLACE(SupplierName, 'la', 'ro') AS UpdatedSupplierName FROM SUPPLIER;
++---------------------+
+| UpdatedSupplierName |
++---------------------+
+| Pratik              |
+| Manasi              |
+| Ira                 |
+| Kumar               |
+| Umesh               |
++---------------------+
+
+6.Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.
+ SELECT REPLACE(REPLACE(SupplierName, 'l', 'r'), 'a', 'o') AS UpdatedSupplierName FROM SUPPLIER;
++---------------------+
+| UpdatedSupplierName |
++---------------------+
+| Protik              |
+| Monosi              |
+| Iro                 |
+| Kumor               |
+| Umesh               |
++---------------------+
+
+7.Display the Supplier names and the lengths of the names.
+SELECT SupplierName, LENGTH(SupplierName) AS NameLength FROM SUPPLIER;
+
++--------------+------------+
+| SupplierName | NameLength |
++--------------+------------+
+| Pratik       |          6 |
+| Manasi       |          6 |
+| Ira          |          3 |
+| Kumar        |          5 |
+| Umesh        |          5 |
++--------------+------------+
+
+8.Use the soundex function to search for a supplier by the name of ‘BLOKE’.
+mysql> SELECT * FROM SUPPLIER WHERE SOUNDEX(SupplierName) = SOUNDEX('ERA');
+Empty set (0.00 sec)
+
+9.Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.).
+
+mysql> SELECT SupplierName,
+    ->        CASE Status
+    ->            WHEN 10 THEN 'Ten'
+    ->            WHEN 15 THEN 'Fifteen'
+    ->            WHEN 12 THEN 'Twelve'
+    ->            WHEN 18 THEN 'Eighteen'
+    ->            WHEN 19 THEN 'Nineteen'
+    ->            WHEN 22 THEN 'Twenty-Two'
+    ->            ELSE 'Unknown'
+    ->        END AS StatusWord
+    -> FROM SUPPLIER;
++--------------+------------+
+| SupplierName | StatusWord |
++--------------+------------+
+| Pratik       | Fifteen    |
+| Manasi       | Twenty-Two |
+| Ira          | Eighteen   |
+| Kumar        | Twelve     |
+| Umesh        | Nineteen   |
++--------------+------------+
+
+10.Display the current day (e.g. Thursday).
+mysql> SELECT DAYNAME(CURDATE()) AS CurrentDay;
++------------+
+| CurrentDay |
++------------+
+| Monday     |
++------------+
+1 row in set (0.01 sec)
